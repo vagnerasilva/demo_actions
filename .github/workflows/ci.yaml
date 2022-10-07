@@ -10,21 +10,21 @@
     executa_linter:
       runs-on: ubuntu-latest
       steps:
-        - name: 1. Realiza o Checkout
+        - name: Realiza o Checkout
           uses: actions/checkout@v2
         
-        - name: 2. Instala o python 3.9
+        - name: Instala o python 3.9
           uses: actions/setup-python@v2
           with:
             python-version: 3.9
 
-        - name: 3. Instala o Poetry
+        - name: Instala o Poetry
         - uses: Gr1N/setup-poetry@v7
           with:
             poetry-preview: true
         - run: poetry --version
 
-        - name: 4. Instala as Dependencias
+        - name: Instala as Dependencias
           run: poetry install 
         
         - name: Executa o Black
