@@ -2,4 +2,36 @@
 
   on:
     pull_request:
-      
+      branches:
+        - main
+    push:
+
+  jobs:
+    executa_linter:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Realiza o Checkout
+          uses: actions/checkout@v2
+        
+        - name: Instala o python 3.9
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.9
+
+        - name: Instala o Poetry
+          uses: Gr1N/setup-poetry@v4
+
+        - name: Instala as Dependencias
+          run: poetry install 
+        
+        - name: Executa o Black
+          run: poetry run black --check app
+
+        - name: Executa o isort
+          run: poetry run isort --check app
+
+        - name: Executa o pydocstyle
+          run: poetry run pydocstyle app 
+
+        - name: Executa os testes unitarios
+          run: poetry run pytest
