@@ -7,7 +7,36 @@
     push:
 
   jobs:
-    pipeline_demo:
+    pipeline_demo_1:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Realiza o Checkout
+          uses: actions/checkout@v2
+        
+        - name: Instala o python 3.9.5
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.9.5
+
+        - name: Instala o Poetry
+          uses: Gr1N/setup-poetry@v7
+
+        - name: Instala as Dependencias
+          run: poetry install 
+        
+        - name: Executa o Black
+          run: poetry run black --check app
+
+        - name: Executa o isort
+          run: poetry run isort --check app
+
+        - name: Executa o pydocstyle
+          run: poetry run pydocstyle app 
+
+        - name: Executa os testes unitarios
+          run: poetry run pytest
+
+    pipeline_demo_2:
       runs-on: ubuntu-latest
       steps:
         - name: Realiza o Checkout
