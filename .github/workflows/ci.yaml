@@ -16,7 +16,7 @@
         - name: Instala o python 3.9
           uses: actions/setup-python@v2
           with:
-            python-version: 3.9
+            python-version: 3.9.14
 
         - name: Instala o Poetry
           uses: Gr1N/setup-poetry@v7
