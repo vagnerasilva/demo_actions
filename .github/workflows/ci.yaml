@@ -35,3 +35,7 @@
 
         - name: Executa os testes unitarios
           run: poetry run pytest
+
+        - name: Linter final testando
+        - uses: actions/checkout@v2
+        - uses: weibullguy/python-lint-plus@master
