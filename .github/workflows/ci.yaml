@@ -3,64 +3,24 @@
   on:
     pull_request:
       branches:
-        - main
+        - develop
     push:
 
   jobs:
-    pipeline_demo_1:
+    build-deploy:
       runs-on: ubuntu-latest
+      env:
+        DOCKER_REPOSITORY: houssemdocker # name of Docker Hub ID
+        IMAGE_NAME: webapp
+        IMAGE_TAG: ${{ github.run_number }} # $GITHUB_RUN_NUMBER
       steps:
-        - name: Realiza o Checkout
+        - name: Git Checkout
           uses: actions/checkout@v2
         
-        - name: Instala o python 3.9.5
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.9.5
-
-        - name: Instala o Poetry
-          uses: Gr1N/setup-poetry@v7
-
-        - name: Instala as Dependencias
-          run: poetry install 
-        
-        - name: Executa o Black
-          run: poetry run black --check app
-
-        - name: Executa o isort
-          run: poetry run isort --check app
-
-        - name: Executa o pydocstyle
-          run: poetry run pydocstyle app 
-
-        - name: Executa os testes unitarios
-          run: poetry run pytest
-
-    pipeline_demo_2:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Realiza o Checkout
-          uses: actions/checkout@v2
-        
-        - name: Instala o python 3.9.5
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.9.5
-
-        - name: Instala o Poetry
-          uses: Gr1N/setup-poetry@v7
-
-        - name: Instala as Dependencias
-          run: poetry install 
-        
-        - name: Executa o Black
-          run: poetry run black --check app
-
-        - name: Executa o isort
-          run: poetry run isort --check app
-
-        - name: Executa o pydocstyle
-          run: poetry run pydocstyle app 
-
-        - name: Executa os testes unitarios
-          run: poetry run pytest
+        - name: Build Docker Image
+          run:
+            docker build ./img/ --file ./img/Dockerfile
+    
+        - name: list Image
+          run:
+            docker images
