@@ -17,10 +17,20 @@
         - name: Git Checkout
           uses: actions/checkout@v2
         
+        - name: Ambientando1
+          run:
+            #docker build ./img/ --file ./img/Dockerfile
+            pwd
+
+        - name: Ambientando2
+          run:
+              #docker build ./img/ --file ./img/Dockerfile
+            ls -la
+
         - name: Build Docker Image
           run:
             #docker build ./img/ --file ./img/Dockerfile
-            docker
+            docker build ./img
     
         - name: list Image
           run:
