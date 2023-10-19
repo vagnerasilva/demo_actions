@@ -30,7 +30,8 @@
         - name: Build Docker Image
           run:
             #docker build ./img/ --file ./img/Dockerfile
-            docker build .
+            #docker build .
+            ./build.sh
     
         - name: list Image
           run:
