@@ -21,6 +21,7 @@
           run:
             #docker build ./img/ --file ./img/Dockerfile
             pwd
+            ls -la
 
         - name: Ambientando2
           run:
