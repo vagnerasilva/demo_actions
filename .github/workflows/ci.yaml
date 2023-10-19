@@ -30,8 +30,8 @@
         - name: Build Docker Image
           run:
             #docker build ./img/ --file ./img/Dockerfile
-            #docker build .
-            chmod + x build.sh
+            docker build .
+            #chmod + x build.sh
             #./build.sh
     
         - name: list Image
