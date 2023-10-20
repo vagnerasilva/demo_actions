@@ -25,14 +25,15 @@
         - name: Ambientando2
           run:
               #docker build ./img/ --file ./img/Dockerfile
-            ls -la
+            #ls -la
+            chmod +x ./build.sh
 
         - name: Build Docker Image
           run:
             #docker build ./img/ --file ./img/Dockerfile
             #docker build . -t imagetestevagner
-            chmod +x ./build.sh
-            #./build.sh
+            #chmod +x ./build.sh
+            ./build.sh
     
         - name: list Image
           run:
