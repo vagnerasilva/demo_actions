@@ -36,3 +36,7 @@
         - name: List Image
           run:
             docker images "vagnerasilva\/*"
+
+        - name: List Image
+          run:
+            docker scout quickview vagnerasilva/container-img3
