@@ -49,6 +49,6 @@
           run:
             ./install-scout.sh
 
-        - name: scan scout
-          run:
-            docker scout quickview vagnerasilva/container-img3
+        #- name: scan scout
+        #  run:
+        #    docker scout quickview vagnerasilva/container-img3
