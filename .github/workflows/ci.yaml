@@ -35,4 +35,4 @@
     
         - name: List Image
           run:
-            docker images
+            docker images "vagnerasilva\/*"
