@@ -1,4 +1,4 @@
-  name: Integracao Continua ${{ github.run_number }}
+  name: Integracao Continua 
 
   on:
     pull_request:
