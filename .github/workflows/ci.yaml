@@ -41,6 +41,10 @@
           run:
             curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
 
+        - name: Ambientando4
+          run:
+            chmod +x ./install-scout.sh
+
         - name: install scout
           run:
             ./install-scout.sh
