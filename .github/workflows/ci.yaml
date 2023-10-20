@@ -10,8 +10,8 @@
     build-deploy:
       runs-on: ubuntu-latest
       env:
-        DOCKER_REPOSITORY: houssemdocker # name of Docker Hub ID
-        IMAGE_NAME: webapp
+        DOCKER_REPOSITORY: vagnerasilva # name of Docker Hub ID
+        IMAGE_NAME: testeimagevagner
         IMAGE_TAG: ${{ github.run_number }} # $GITHUB_RUN_NUMBER
       steps:
         - name: Git Checkout
@@ -19,22 +19,20 @@
         
         - name: Ambientando1
           run:
-            #docker build ./img/ --file ./img/Dockerfile
             pwd
 
         - name: Ambientando2
           run:
-              #docker build ./img/ --file ./img/Dockerfile
-            #ls -la
             chmod +x ./build.sh
+        
+        - name: Ambientando3
+          run:
+            ls -la
 
         - name: Build Docker Image
           run:
-            #docker build ./img/ --file ./img/Dockerfile
-            #docker build . -t imagetestevagner
-            #chmod +x ./build.sh
             ./build.sh
     
-        - name: list Image
+        - name: List Image
           run:
             docker images
